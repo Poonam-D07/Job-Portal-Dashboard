@@ -1,0 +1,243 @@
+.app-sidebar {
+  grid-area: sidebar;
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: width var(--transition-normal), background-color var(--transition-normal);
+  overflow: hidden;
+  width: var(--sidebar-width);
+}
+
+.app-sidebar.collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+
+/* Sidebar Logo Header */
+.sidebar-brand-wrapper {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid var(--card-border);
+  overflow: hidden;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  white-space: nowrap;
+}
+
+.brand-logo-hex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background: var(--primary-glow);
+  border: 1px solid hsla(250, 84%, 60%, 0.2);
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  opacity: 1;
+  transition: opacity var(--transition-normal);
+}
+
+.app-sidebar.collapsed .brand-name {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Sidebar Navigation Items */
+.sidebar-nav {
+  flex: 1;
+  padding: 1.5rem 0.75rem;
+}
+
+.sidebar-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* Section label divider (e.g. "Account") */
+.nav-section-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  padding: 0.75rem 0.75rem 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity var(--transition-normal);
+}
+
+.app-sidebar.collapsed .nav-section-label {
+  opacity: 0;
+  pointer-events: none;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 0.75rem;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color var(--transition-fast), background-color var(--transition-fast), padding var(--transition-normal);
+  white-space: nowrap;
+  position: relative;
+}
+
+.sidebar-nav-link:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+}
+
+.sidebar-nav-link.active {
+  color: var(--primary-light);
+  background-color: var(--primary-glow);
+}
+
+.sidebar-nav-link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 15%;
+  height: 70%;
+  width: 3px;
+  background-color: var(--primary);
+  border-radius: 0 4px 4px 0;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+  transition: margin var(--transition-normal);
+}
+
+.app-sidebar.collapsed .nav-icon {
+  margin-right: 0;
+}
+
+.nav-text {
+  opacity: 1;
+  transition: opacity var(--transition-normal);
+}
+
+.app-sidebar.collapsed .nav-text {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Sidebar Footer & Collapse trigger */
+.sidebar-footer {
+  padding: 1rem 0.75rem;
+  border-top: 1px solid var(--card-border);
+}
+
+.sidebar-toggle-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.sidebar-toggle-btn:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+}
+
+.toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+  transition: transform var(--transition-normal), margin var(--transition-normal);
+}
+
+.app-sidebar.collapsed .toggle-icon {
+  transform: rotate(180deg);
+  margin-right: 0;
+}
+
+.toggle-text {
+  opacity: 1;
+  transition: opacity var(--transition-normal);
+}
+
+.app-sidebar.collapsed .toggle-text {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Mobile responsive drawer modes */
+@media (max-width: 768px) {
+  .app-sidebar {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 260px;
+    z-index: 1000;
+    transition: left var(--transition-normal);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .app-sidebar.mobile-active {
+    left: 0;
+  }
+
+  .app-sidebar.collapsed {
+    width: 260px; /* Force full width on mobile drawer even if flag is collapsed */
+  }
+
+  .app-sidebar.collapsed .brand-name,
+  .app-sidebar.collapsed .nav-text,
+  .app-sidebar.collapsed .toggle-text {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .app-sidebar.collapsed .nav-icon,
+  .app-sidebar.collapsed .toggle-icon {
+    margin-right: 0.75rem;
+  }
+
+  .sidebar-footer {
+    display: none; /* Hide collapse btn on mobile drawer */
+  }
+}

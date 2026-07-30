@@ -1,0 +1,350 @@
+/* Jobs control search bar */
+.jobs-control-panel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+}
+
+.search-field-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 0 1rem;
+  height: 44px;
+  flex: 1;
+  transition: border-color var(--transition-fast);
+}
+
+.search-field-wrapper:focus-within {
+  border-color: var(--primary);
+}
+
+.search-icon {
+  margin-right: 0.75rem;
+}
+
+#jobSearchInput {
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+#jobSearchInput::placeholder {
+  color: var(--text-muted);
+}
+
+/* Location Filter select option */
+.filter-dropdown-wrapper {
+  position: relative;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  height: 44px;
+  min-width: 160px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  transition: border-color var(--transition-fast);
+}
+
+.filter-dropdown-wrapper:focus-within {
+  border-color: var(--primary);
+}
+
+#locationFilter {
+  width: 100%;
+  font-size: 0.9rem;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238892b0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0px center;
+  padding-right: 1.5rem;
+}
+
+#locationFilter option {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Job Types filters buttons flex */
+.job-types-flex {
+  display: flex;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 0.25rem;
+  height: 44px;
+}
+
+.filter-type-btn {
+  padding: 0 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.filter-type-btn:hover {
+  color: var(--text-primary);
+}
+
+.filter-type-btn.active {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+/* Active filters helper bar */
+.active-filters-info {
+  background-color: var(--primary-glow);
+  border: 1px solid hsla(250, 84%, 60%, 0.15);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.25rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.filter-summary-text {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--primary-light);
+}
+
+.clear-filters-btn {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.clear-filters-btn:hover {
+  color: var(--primary-light);
+}
+
+/* Job Feed Layout Grid */
+.jobs-feed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1.5rem;
+}
+
+.job-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  cursor: pointer;
+}
+
+.company-badge-row {
+  gap: 0.75rem;
+}
+
+.company-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.job-post-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.bookmark-btn {
+  color: var(--text-muted);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.bookmark-btn:hover {
+  color: var(--warning-text);
+  transform: scale(1.05);
+}
+
+.job-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.job-card-excerpt {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-salary-info {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-left: auto;
+}
+
+.card-divider {
+  border: none;
+  height: 1px;
+  background-color: var(--card-border);
+  margin: 0.25rem 0;
+}
+
+.experience-requirement {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.view-job-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+}
+
+/* Fallback empty view styling */
+.no-jobs-fallback {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  gap: 1rem;
+  color: var(--text-muted);
+}
+
+.no-jobs-fallback h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.no-jobs-fallback p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive configurations */
+@media (max-width: 1024px) {
+  .jobs-control-panel {
+    flex-wrap: wrap;
+  }
+  
+  .search-field-wrapper {
+    min-width: 100%;
+  }
+
+  .filter-dropdown-wrapper,
+  .job-types-flex {
+    flex: 1;
+  }
+}
+
+@media (max-width: 580px) {
+  .jobs-control-panel {
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .filter-dropdown-wrapper {
+    min-width: 100%;
+  }
+
+  .job-types-flex {
+    width: 100%;
+  }
+
+  .filter-type-btn {
+    flex: 1;
+    text-align: center;
+    padding: 0;
+  }
+  
+  .jobs-feed-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-salary-info {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+}
+
+/* Skeleton loader shimmering animation styles */
+.skeleton-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  min-height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-logo,
+.skeleton-title,
+.skeleton-text,
+.skeleton-footer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-tertiary) 25%,
+    var(--card-border) 37%,
+    var(--bg-tertiary) 63%
+  );
+  background-size: 400% 100%;
+  animation: skeletonShimmer 1.4s ease infinite;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.skeleton-title {
+  height: 20px;
+  width: 70%;
+  margin-top: 0.5rem;
+}
+
+.skeleton-text {
+  height: 50px;
+  width: 100%;
+}
+
+.skeleton-footer {
+  height: 36px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.bookmark-btn.active svg {
+  animation: bookmarkPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes skeletonShimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bookmarkPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
