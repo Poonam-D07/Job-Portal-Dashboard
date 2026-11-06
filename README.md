@@ -110,7 +110,7 @@ Job-Portal/
 ---
 
 ## 👩‍💻 Author
-
+ 
 **Poonam Mishra**
 
 Frontend Developer (Fresher)
