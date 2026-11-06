@@ -70,15 +70,15 @@ Job-Portal/
 
 ## 📸 Screenshots
  
-| ![Dashboard](./screenshot/dashboard.png)  |
+| ![Dashboard](./Screenshot/dashboard.png)  |
 
-| ![Find Job](./screenshot/findJob.png)  |
+| ![Find Job](./Screenshot/findJob.png)  |
 
-| ![Application](./screenshot/myApplication.png)  |
+| ![Application](./Screenshot/myApplication.png)  |
 
-| ![Profile](./screenshot/profile.png)  |
+| ![Profile](./Screenshot/profile.png)  |
 
-| ![About](./screenshot/about.png)  |
+| ![About](./Screenshot/about.png)  |
 
 - Profile
 - Applications
