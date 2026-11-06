@@ -69,11 +69,17 @@ Job-Portal/
 ---
 
 ## 📸 Screenshots
+ 
+| ![Dashboard](./screenshot/dashboard.png)  |
 
-(Add screenshots here)
+| ![Find Job](./screenshot/findJob.png)  |
 
-- Dashboard
-- Find Jobs
+| ![Application](./screenshot/myApplication.png)  |
+
+| ![Profile](./screenshot/profile.png)  |
+
+| ![About](./screenshot/about.png)  |
+
 - Profile
 - Applications
 
